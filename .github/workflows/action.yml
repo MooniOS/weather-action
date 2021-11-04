@@ -18,7 +18,7 @@ jobs:
           php-version: '8.0'
           
       - name: 'Run PHP'
-        run: bash ./test.php
+        run: php ./test.php
     
       - name: 'Get Weather'
         run: bash ./weather.sh
