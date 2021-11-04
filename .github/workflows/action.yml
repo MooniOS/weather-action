@@ -11,20 +11,26 @@ jobs:
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
+        
+      - name: Setup PHP with pre-release PECL extension
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+    
       - name: 'Get Weather'
         run: bash ./weather.sh
       - name: 'Get Date'
         run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
-      - name: 'Send mail'
-        uses: dawidd6/action-send-mail@master
-        with:
-          server_address: smtp.163.com
-          server_port: 465
-          username: ${{ secrets.MAILUSERNAME }}
-          password: ${{ secrets.MAILPASSWORD }}
-          subject: Shanghai Weather Report (${{env.REPORT_DATE}})
-          body: file://result.html
-          to: tvfun9@outlook.com
-          from: GitHub Actions
-          content_type: text/html
+       #- name: 'Send mail'
+         #uses: dawidd6/action-send-mail@master
+         #with:
+           #server_address: smtp.163.com
+           #server_port: 465
+           #username: ${{ secrets.MAILUSERNAME }}
+           #password: ${{ secrets.MAILPASSWORD }}
+           #subject: Shanghai Weather Report (${{env.REPORT_DATE}})
+           #body: file://result.html
+           #to: tvfun9@outlook.com
+           #from: GitHub Actions
+           #content_type: text/html
           
