@@ -12,7 +12,7 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
         
-      - name: Setup PHP with pre-release PECL extension
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.0'
@@ -20,10 +20,10 @@ jobs:
       - name: 'Run PHP'
         run: php ./test.php
     
-      - name: 'Get Weather'
-        run: bash ./weather.sh
-      - name: 'Get Date'
-        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+      #- name: 'Get Weather'
+        #run: bash ./weather.sh
+      #- name: 'Get Date'
+        #run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
        #- name: 'Send mail'
          #uses: dawidd6/action-send-mail@master
          #with:
