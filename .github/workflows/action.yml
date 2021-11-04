@@ -33,7 +33,7 @@ jobs:
            #password: ${{ secrets.MAILPASSWORD }}
            #subject: Shanghai Weather Report (${{env.REPORT_DATE}})
            #body: file://result.html
-           #to: tvfun9@outlook.com
-           #from: GitHub Actions
+           #to: test@outlook.com
+           #from: Test Action
            #content_type: text/html
           
